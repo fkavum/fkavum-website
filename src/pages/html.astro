@@ -1,0 +1,23 @@
+---
+// Burası Javascript/Typescript alanı
+import Layout from '../layouts/test.astro';
+---
+<Layout>
+<div class="benim-ozel-kutum">
+  <h1>Standart HTML Başlığı</h1>
+  <p>Bu kutu klasik CSS ile şekillendi.</p>
+</div>
+
+<style>
+  /* Klasik CSS kodlarını buraya yapıştırabilirsin */
+  .benim-ozel-kutum {
+    background: linear-gradient(45deg, #1a1a1a, #333);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid gold; /* Tailwind kullanmadan klasik CSS */
+  }
+  h1 {
+    color: #ffcc00;
+  }
+</style>
+</Layout>

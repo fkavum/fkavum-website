@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/test.astro';
+import ProjectCard from '../components/ProjectCard.jsx';
+---
+<Layout title="Oyun Geliştirici Portfolyosu">
+    <header class="mb-12 text-center mt-10">
+        <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-4">
+            Merhaba, Ben Bir Geliştiriciyim
+        </h1>
+        <p class="text-xl text-gray-400">Sistem mimarileri kuruyor ve oyun projeleri geliştiriyorum.</p>
+    </header>
+
+    <main>
+        <h2 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Öne Çıkan Projeler</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- ÖNEMLİ: client:load komutu Astro'ya bu bileşenin Javascript içerdiğini ve tarayıcıda çalışması gerektiğini söyler -->
+            <ProjectCard 
+                client:load 
+                title="Crossle" 
+                description="Multiplayer kelime bulmaca oyunu. Backend senkronizasyonu ve mobil entegrasyonları tamamlandı." 
+                techStack={['Unity', 'C#', 'Mobile']} 
+            />
+            
+            <ProjectCard 
+                client:load 
+                title="Quartermaster" 
+                description="Üs yönetimi ve lojistik mekaniklerine odaklanan yeni nesil bir simülasyon projesi." 
+                techStack={['Game Design', 'Logistics', 'System Arch']} 
+            />
+        </div>
+    </main>
+</Layout>

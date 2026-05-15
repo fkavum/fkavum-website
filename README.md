@@ -1,3 +1,26 @@
+###
+
+```bash
+node v -> v26.0.0
+npm v -> 11.12.1
+astro v-> 5.0.6
+# 1. Yeni bir Astro projesi oluştur (Sana birkaç soru soracak, "Include sample files" ve "Install dependencies" diyebilirsin)
+npm create astro@latest portfolyom
+
+# 2. Proje klasörüne gir
+cd portfolyom
+
+# 3. Sihirli komut: React ve Tailwind'i otomatik olarak projeye entegre et
+npx astro add react tailwind
+# (Bu komut sana "Bunu kurayım mı, ayar dosyasını güncelleyeyim mi?" diyecek, hepsine "Yes / y" de).
+
+```
+
+```bash
+npm run dev
+```
+
+
 # Astro Starter Kit: Basics
 
 ```sh

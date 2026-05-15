@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/test.astro';
 import ProjectCard from '../components/ProjectCard.jsx';
+import VueCounter from '../components/VueCounter.vue';
 ---
 <Layout title="Oyun Geliştirici Portfolyosu">
     <header class="mb-12 text-center mt-10">
@@ -28,6 +29,24 @@ import ProjectCard from '../components/ProjectCard.jsx';
                 description="Üs yönetimi ve lojistik mekaniklerine odaklanan yeni nesil bir simülasyon projesi." 
                 techStack={['Game Design', 'Logistics', 'System Arch']} 
             />
+        </div>
+
+
+        <!-- REACT BİLEŞENİ -->
+        <div>
+            <h2 class="text-sm font-semibold uppercase text-blue-400 mb-2">React Alanı</h2>
+            <ProjectCard 
+                client:load 
+                title="React Projesi" 
+                description="Bu kart React ile render edildi." 
+                techStack={['React', 'Tailwind']} 
+            />
+        </div>
+
+        <!-- VUE BİLEŞENİ -->
+        <div>
+            <h2 class="text-sm font-semibold uppercase text-emerald-400 mb-2">Vue Alanı</h2>
+            <VueCounter client:load />
         </div>
     </main>
 </Layout>

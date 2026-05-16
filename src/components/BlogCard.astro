@@ -20,35 +20,3 @@ const { title, description, date, category, slug } = Astro.props;
     <p>{description}</p>
 </a>
 
-<style>
-    .blog-item {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-        padding: 20px;
-        border: 1px dashed #444;
-        margin-bottom: 15px;
-        transition: 0.2s;
-        background: rgba(255, 255, 255, 0.02);
-    }
-
-    .blog-item:hover {
-        border-color: var(--secondary);
-        background: rgba(255, 225, 0, 0.05);
-    }
-
-    .blog-meta {
-        font-size: 0.9rem;
-        margin-bottom: 5px;
-    }
-
-    .blog-title {
-        font-size: 0.9rem;
-        margin: 10px 0;
-        color: var(--text);
-    }
-
-    .blog-item:hover .blog-title {
-        color: var(--secondary);
-    }
-</style>

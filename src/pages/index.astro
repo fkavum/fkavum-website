@@ -1,3 +1,6 @@
+---
+import { blogs } from '../data/blogs';
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,7 +130,7 @@
         <a href="#about">INFO</a>
         <a href="#exp">QUESTS</a>
         <a href="#skills">STATS</a>
-        <a href="#blog">LOGS</a>
+        <a href="/logs">LOGS</a>
     </nav>
 
     <div class="container">
@@ -216,23 +219,13 @@
         <section id="blog">
             <h2>DEV_DIARY (BLOG)</h2>
             
-            <a href="#" class="blog-item">
-                <div class="dim">2026.04.12 // DATABASE</div>
-                <div class="pixel-font" style="font-size: 0.9rem; margin: 10px 0;">Optimizing SQL for Real-Time Systems</div>
-                <p>A deep dive into how I reduced B2B query times from seconds to milliseconds[cite: 38].</p>
-            </a>
-
-            <a href="#" class="blog-item">
-                <div class="dim">2026.03.05 // NETWORK</div>
-                <div class="pixel-font" style="font-size: 0.9rem; margin: 10px 0;">Handling 500k DAU with Redis</div>
-                <p>Implementing asynchronous processing and in-memory caching for low-latency gaming[cite: 40].</p>
-            </a>
-
-            <a href="#" class="blog-item">
-                <div class="dim">2026.01.20 // ENGINE</div>
-                <div class="pixel-font" style="font-size: 0.9rem; margin: 10px 0;">Building a 1.5MB Game Engine</div>
-                <p>The engineering behind Playable Factory's custom runtime and Unity export pipeline[cite: 65, 66].</p>
-            </a>
+            {blogs.map((blog) => (
+                <a href={`/logs/${blog.slug}`} class="blog-item">
+                    <div class="dim">{blog.date} // {blog.category}</div>
+                    <div class="pixel-font" style="font-size: 0.9rem; margin: 10px 0;">{blog.title}</div>
+                    <p>{blog.description}</p>
+                </a>
+            ))}
         </section>
 
         <footer style="padding: 50px 0; text-align: center; border: none;">

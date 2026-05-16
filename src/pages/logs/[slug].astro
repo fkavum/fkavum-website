@@ -1,0 +1,19 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { blogs } from '../../data/blogs';
+
+export function getStaticPaths() {
+  return blogs.map((blog) => ({
+    params: { slug: blog.slug },
+    props: { blog },
+  }));
+}
+
+const { blog } = Astro.props;
+---
+
+<BlogLayout title={blog.title}>
+    <a href="/logs" class="back-btn">< RETURN_TO_LOGS</a>
+    <h1 style="text-align:left; font-size:1.5rem;">{blog.title}</h1>
+    <article set:html={blog.content} />
+</BlogLayout>

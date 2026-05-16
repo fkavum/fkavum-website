@@ -1,0 +1,20 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { blogs } from '../../data/blogs';
+---
+
+<BlogLayout title="Dev Logs">
+    <h1>DEV_LOGS</h1>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px;">
+        {blogs.map((blog) => (
+            <a href={`/logs/${blog.slug}`} style="text-decoration: none; color: inherit;">
+                <div style="border: 2px dashed #444; padding: 25px; cursor: pointer; transition: 0.2s; background: rgba(255, 255, 255, 0.02);" onmouseover="this.style.borderColor='var(--secondary)'; this.style.background='rgba(255, 225, 0, 0.05)'" onmouseout="this.style.borderColor='#444'; this.style.background='rgba(255, 255, 255, 0.02)'">
+                    <span style="color:var(--accent); font-family: 'VT323', monospace;">{blog.tag}</span>
+                    <h3 style="font-size:0.9rem; margin: 15px 0;">{blog.title}</h3>
+                    <p>{blog.description}</p>
+                </div>
+            </a>
+        ))}
+    </div>
+    <a href="/" class="back-btn">< RETURN_TO_PROFILE</a>
+</BlogLayout>

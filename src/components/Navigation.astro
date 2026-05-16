@@ -1,0 +1,46 @@
+---
+---
+<nav>
+    <div class="container nav-content">
+        <div class="nav-links">
+            <a href="/#about">INFO</a>
+            <a href="/#exp">QUESTS</a>
+            <a href="/#skills">STATS</a>
+            <a href="/logs">LOGS</a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    nav {
+        position: sticky;
+        top: 0;
+        background: rgba(10, 10, 18, 0.95);
+        padding: 20px 0;
+        z-index: 100;
+        border-bottom: 2px solid var(--primary);
+    }
+
+    .nav-content {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.7rem;
+        transition: 0.3s;
+    }
+
+    nav a:hover { 
+        color: var(--accent); 
+        transform: scale(1.1); 
+    }
+</style>

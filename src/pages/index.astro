@@ -1,203 +1,90 @@
 ---
-import { blogs } from '../data/blogs';
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Section from "../components/Section.astro";
+import Card from "../components/Card.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { blogs } from "../data/blogs";
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatih Kavum | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0a12;
-            --primary: #00f2ff; /* Neon Blue */
-            --secondary: #ffe100; /* Arcade Yellow */
-            --accent: #ff00ff; /* Hot Pink */
-            --text: #e0e0e0;
-            --card-bg: rgba(255, 255, 255, 0.03);
-        }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'VT323', monospace;
-            font-size: 1.4rem;
-            line-height: 1.4;
-            margin: 0;
-            padding: 0;
-            /* Subtler scanline - less eye strain */
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), var(--bg);
-            background-size: 100% 4px;
-        }
-
-        /* --- LAYOUT UTILITIES --- */
-        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 80px 0; border-bottom: 1px solid rgba(0, 242, 255, 0.1); }
-        .spacer { height: 100px; }
-
-        /* --- TYPOGRAPHY --- */
-        h1, h2, .pixel-font { font-family: 'Press Start 2P', cursive; text-transform: uppercase; }
-        h1 { font-size: 2.5rem; color: var(--secondary); text-shadow: 4px 4px var(--accent); margin-bottom: 10px; }
-        h2 { font-size: 1.2rem; color: var(--primary); margin-bottom: 40px; display: flex; align-items: center; }
-        h2::before { content: '>'; margin-right: 15px; }
-        
-        .highlight { color: var(--primary); font-weight: bold; }
-        .dim { color: #888; font-size: 0.9rem; }
-
-        /* --- HEADER & NAV --- */
-        header { 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center;
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(10, 10, 18, 0.95);
-            padding: 20px 0;
-            z-index: 100;
-            border-bottom: 2px solid var(--primary);
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
-            transition: 0.3s;
-        }
-
-        nav a:hover { color: var(--accent); transform: scale(1.1); }
-
-        /* --- CARDS & CONTENT --- */
-        .card {
-            background: var(--card-bg);
-            border-left: 4px solid var(--primary);
-            padding: 30px;
-            margin-bottom: 30px;
-            transition: 0.3s;
-        }
-
-        .card:hover { background: rgba(255, 255, 255, 0.07); transform: translateX(10px); }
-
-        .tag-row { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
-        .tag { 
-            font-size: 0.8rem; 
-            background: rgba(255, 0, 255, 0.1); 
-            color: var(--accent); 
-            padding: 2px 8px; 
-            border: 1px solid var(--accent);
-        }
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        /* --- BLOG --- */
-        .blog-item {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            padding: 20px;
-            border: 1px dashed #444;
-            margin-bottom: 15px;
-        }
-
-        .blog-item:hover { border-color: var(--secondary); }
-
-        /* --- SCROLL BAR --- */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--primary); }
-
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="#about">INFO</a>
-        <a href="#exp">QUESTS</a>
-        <a href="#skills">STATS</a>
-        <a href="/logs">LOGS</a>
-    </nav>
+<Layout title="Fatih Kavum | Portfolio">
+    <Navigation />
 
     <div class="container">
         <header id="top">
             <h1>FATIH KAVUM</h1>
-            <p style="font-size: 1.8rem;">Senior <span class="highlight">Game & Software</span> Engineer</p>
-            <p class="dim">Liège, Belgium | <span style="color:var(--secondary)">50M+ Installs</span> </p>
-            <div class="tag-row" style="justify-content: center; margin-top: 20px;">
+            <p style="font-size: 1.8rem;">
+                Senior <span class="highlight">Game & Software</span> Engineer
+            </p>
+            <p class="dim">
+                Liège, Belgium | <span style="color:var(--secondary)"
+                    >50M+ Installs</span
+                >
+            </p>
+            <div class="tag-row header-tags">
                 <span class="tag">LVL 7+ YEARS EXP</span>
                 <span class="tag">UNITY EXPERT</span>
                 <span class="tag">BACKEND ARCHITECT</span>
             </div>
         </header>
 
-        <section id="about">
-            <h2>PLAYER_PROFILE</h2>
+        <Section id="about" title="PLAYER_PROFILE">
             <p style="font-size: 1.6rem; line-height: 1.6;">
-                I build <span class="highlight">scalable systems</span> for high-traffic environments. 
-                Whether it's optimizing SQL queries from seconds to milliseconds [cite: 38] or 
-                architecting gameplay for <span class="highlight">500k Daily Active Users</span>[cite: 22, 24], 
-                I focus on performance and reliability.
+                I build <span class="highlight">scalable systems</span> for high-traffic
+                environments. Whether it's optimizing SQL queries from seconds to
+                milliseconds [cite: 38] or architecting gameplay for <span
+                    class="highlight">500k Daily Active Users</span
+                >[cite: 22, 24], I focus on performance and reliability.
             </p>
-        </section>
+        </Section>
 
-        <section id="exp">
-            <h2>QUEST_LOG (EXPERIENCE)</h2>
+        <Section id="exp" title="QUEST_LOG (EXPERIENCE)">
+            <Card
+                title="Zynga"
+                subtitle="Senior Software Engineer"
+                date="2022 - 2025"
+                tags={[".NET", "AWS", "Unity", "CI/CD"]}
+            >
+                <p>
+                    Managed backend-facing systems for <span class="highlight"
+                        >50M+ installs</span
+                    >. Engineered reconnection pipelines and content delivery
+                    via Unity Addressables[cite: 24, 26, 55].
+                </p>
+            </Card>
 
-            <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <h3 class="pixel-font" style="margin: 0; color: var(--secondary);">Zynga</h3>
-                    <span class="dim">2022 - 2025</span>
-                </div>
-                <p class="highlight">Senior Software Engineer</p>
-                <p>Managed backend-facing systems for <span class="highlight">50M+ installs</span>. Engineered reconnection pipelines and content delivery via Unity Addressables[cite: 24, 26, 55].</p>
-                <div class="tag-row">
-                    <span class="tag">.NET</span> <span class="tag">AWS</span> <span class="tag">Unity</span> <span class="tag">CI/CD</span>
-                </div>
-            </div>
+            <Card
+                title="Sir Studios"
+                subtitle="Senior Software Developer"
+                date="2021 - 2022"
+                tags={["PlayFab", "Azure", "Scalability"]}
+            >
+                <p>
+                    Led architecture for new products and maintained live
+                    systems for <span class="highlight">200k+ DAU</span> using PlayFab
+                    and Azure Functions[cite: 28, 30, 32].
+                </p>
+            </Card>
 
-            <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <h3 class="pixel-font" style="margin: 0; color: var(--secondary);">Sir Studios</h3>
-                    <span class="dim">2021 - 2022</span>
-                </div>
-                <p class="highlight">Senior Software Developer</p>
-                <p>Led architecture for new products and maintained live systems for <span class="highlight">200k+ DAU</span> using PlayFab and Azure Functions[cite: 28, 30, 32].</p>
-                <div class="tag-row">
-                    <span class="tag">PlayFab</span> <span class="tag">Azure</span> <span class="tag">Scalability</span>
-                </div>
-            </div>
+            <Card
+                title="Playable Factory"
+                subtitle="Software Developer"
+                date="2020 - 2021"
+            >
+                <p>
+                    Built a custom HTML5 engine to replicate Unity behavior,
+                    keeping build sizes <span class="highlight"
+                        >under 1.5MB</span
+                    >[cite: 65, 66].
+                </p>
+            </Card>
+        </Section>
 
-            <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <h3 class="pixel-font" style="margin: 0; color: var(--secondary);">Playable Factory</h3>
-                    <span class="dim">2020 - 2021</span>
-                </div>
-                <p class="highlight">Software Developer</p>
-                <p>Built a custom HTML5 engine to replicate Unity behavior, keeping build sizes <span class="highlight">under 1.5MB</span>[cite: 65, 66].</p>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>ABILITY_TREE (STATS)</h2>
+        <Section id="skills" title="ABILITY_TREE (STATS)">
             <div class="skill-grid">
                 <div>
-                    <p class="pixel-font" style="font-size: 0.8rem; color: var(--accent);">CORE_TECH</p>
-                    <ul style="list-style: '>> '; padding-left: 20px;">
+                    <p class="pixel-font skill-label">CORE_TECH</p>
+                    <ul class="skill-list">
                         <li>C# / .NET (Expert) [cite: 44, 70]</li>
                         <li>Unity (6+ Years) [cite: 49, 69]</li>
                         <li>SQL & NoSQL [cite: 44]</li>
@@ -205,8 +92,8 @@ import { blogs } from '../data/blogs';
                     </ul>
                 </div>
                 <div>
-                    <p class="pixel-font" style="font-size: 0.8rem; color: var(--accent);">INFRA_SKILLS</p>
-                    <ul style="list-style: '>> '; padding-left: 20px;">
+                    <p class="pixel-font skill-label">INFRA_SKILLS</p>
+                    <ul class="skill-list">
                         <li>AWS / Azure [cite: 27, 45, 58]</li>
                         <li>Jenkins / Docker [cite: 27, 45, 59]</li>
                         <li>Redis / Caching [cite: 40, 45]</li>
@@ -214,24 +101,86 @@ import { blogs } from '../data/blogs';
                     </ul>
                 </div>
             </div>
-        </section>
+        </Section>
 
-        <section id="blog">
-            <h2>DEV_DIARY (BLOG)</h2>
-            
-            {blogs.map((blog) => (
-                <a href={`/logs/${blog.slug}`} class="blog-item">
-                    <div class="dim">{blog.date} // {blog.category}</div>
-                    <div class="pixel-font" style="font-size: 0.9rem; margin: 10px 0;">{blog.title}</div>
-                    <p>{blog.description}</p>
-                </a>
-            ))}
-        </section>
+        <Section id="blog" title="DEV_DIARY (BLOG)">
+            {
+                blogs.map((blog) => (
+                    <BlogCard
+                        title={blog.title}
+                        description={blog.description}
+                        date={blog.date}
+                        category={blog.category}
+                        slug={blog.slug}
+                    />
+                ))
+            }
+        </Section>
 
-        <footer style="padding: 50px 0; text-align: center; border: none;">
-            <p class="dim">GAME OVER? NAH. <br> CONTACT: fatihkavum@gmail.com [cite: 20, 48]</p>
-        </footer >
+        <footer>
+            <p class="dim">
+                GAME OVER? NAH. <br /> CONTACT: fatihkavum@gmail.com [cite: 20, 48]
+            </p>
+        </footer>
     </div>
+</Layout>
 
-</body>
-</html>
+<style>
+    header {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: var(--secondary);
+        text-shadow: 4px 4px var(--accent);
+        margin-bottom: 10px;
+    }
+
+    .header-tags {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .tag-row {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        font-size: 0.8rem;
+        background: rgba(255, 0, 255, 0.1);
+        color: var(--accent);
+        padding: 2px 8px;
+        border: 1px solid var(--accent);
+    }
+
+    .skill-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .skill-label {
+        font-size: 0.8rem;
+        color: var(--accent);
+    }
+
+    .skill-list {
+        list-style: ">> ";
+        padding-left: 20px;
+    }
+
+    footer {
+        padding: 50px 0;
+        text-align: center;
+        border: none;
+    }
+</style>

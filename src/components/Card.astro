@@ -1,0 +1,66 @@
+---
+interface Props {
+    title: string;
+    subtitle?: string;
+    date?: string;
+    tags?: string[];
+}
+
+const { title, subtitle, date, tags = [] } = Astro.props;
+---
+<div class="card">
+    <div class="card-header">
+        <h3 class="pixel-font">{title}</h3>
+        {date && <span class="dim">{date}</span>}
+    </div>
+    {subtitle && <p class="highlight">{subtitle}</p>}
+    <slot />
+    {tags.length > 0 && (
+        <div class="tag-row">
+            {tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+    )}
+</div>
+
+<style>
+    .card {
+        background: var(--card-bg);
+        border-left: 4px solid var(--primary);
+        padding: 30px;
+        margin-bottom: 30px;
+        transition: 0.3s;
+    }
+
+    .card:hover { 
+        background: rgba(255, 255, 255, 0.07); 
+        transform: translateX(10px); 
+    }
+
+    .card-header {
+        display: flex; 
+        justify-content: space-between; 
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+
+    h3 { 
+        margin: 0; 
+        color: var(--secondary); 
+        font-size: 1rem;
+    }
+
+    .tag-row { 
+        display: flex; 
+        gap: 10px; 
+        margin-top: 15px; 
+        flex-wrap: wrap; 
+    }
+
+    .tag { 
+        font-size: 0.8rem; 
+        background: rgba(255, 0, 255, 0.1); 
+        color: var(--accent); 
+        padding: 2px 8px; 
+        border: 1px solid var(--accent);
+    }
+</style>

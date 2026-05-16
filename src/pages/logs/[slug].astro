@@ -14,6 +14,15 @@ const { blog } = Astro.props;
 
 <BlogLayout title={blog.title}>
     <a href="/logs" class="back-btn">&lt; RETURN_TO_LOGS</a>
-    <h1 style="text-align:left; font-size:1.5rem;">{blog.title}</h1>
+    <h1 class="post-title">{blog.title}</h1>
     <article set:html={blog.content} />
 </BlogLayout>
+
+<style>
+    .post-title {
+        text-align: left; 
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+</style>
+

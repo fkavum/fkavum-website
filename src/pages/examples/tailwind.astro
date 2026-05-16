@@ -1,6 +1,7 @@
 ---
 // Burası Javascript/Typescript alanı
-import Layout from '../layouts/test.astro';
+import Layout from '../../layouts/examples/Layout.astro';
+import Welcome from '../../components/examples/Welcome.astro';
 ---
 <Layout>
 <div class="benim-ozel-kutum">
@@ -25,4 +26,8 @@ import Layout from '../layouts/test.astro';
     <h2 class="text-2xl font-extrabold text-white mb-2">Tailwind Aktif!</h2>
     <p class="text-purple-100 text-sm">Eğer bu kutu renkli, yuvarlak köşeli ve gölgeli duruyorsa sistem sorunsuz çalışıyor demektir.</p>
 </div>
+
+
+	<Welcome />
+
 </Layout>

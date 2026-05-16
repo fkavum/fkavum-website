@@ -13,7 +13,7 @@ cd portfolyom
 # 3. Sihirli komut: React ve Tailwind'i otomatik olarak projeye entegre et
 npx astro add react tailwind
 # (Bu komut sana "Bunu kurayım mı, ayar dosyasını güncelleyeyim mi?" diyecek, hepsine "Yes / y" de).
-
+npx astro add mdx
 ```
 
 ```bash

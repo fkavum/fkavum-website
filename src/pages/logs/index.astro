@@ -1,19 +1,22 @@
 ---
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import BlogCard from '../../components/BlogCard.astro';
-import { blogs } from '../../data/blogs';
+import { getCollection } from 'astro:content';
+
+const blogs = await getCollection('blog');
 ---
 
 <BlogLayout title="Dev Logs">
     <h1>DEV_LOGS</h1>
     <div class="blog-grid">
-        {blogs.map((blog) => (
+        {blogs.length === 0 && <p class="dim">No logs found. (Collection: blog)</p>}
+        {blogs && blogs.map((blog) => (
             <BlogCard 
-                title={blog.title}
-                description={blog.description}
-                date={blog.date}
-                category={blog.category}
-                slug={blog.slug}
+                title={blog.data.title}
+                description={blog.data.description}
+                date={blog.data.date}
+                category={blog.data.category}
+                slug={blog.id}
             />
         ))}
     </div>

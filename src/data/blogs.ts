@@ -27,3 +27,4 @@ export const blogs = [
     content: "<p>At Playable Factory, the challenge was clear: replicate complex Unity gameplay (physics, shaders, particles) in a browser-native runtime while keeping the total footprint under 1.5MB[cite: 77]. I focused on aggressive memory management and custom shader abstractions to bridge the gap between Unity and HTML5.</p>"
   }
 ];
+// import { blogz } from "../data/blogs";

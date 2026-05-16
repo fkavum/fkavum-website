@@ -1,21 +1,24 @@
 ---
 import BlogLayout from '../../layouts/BlogLayout.astro';
-import { blogs } from '../../data/blogs';
+import { getCollection, render } from 'astro:content';
 
-export function getStaticPaths() {
-  return blogs.map((blog) => ({
-    params: { slug: blog.slug },
-    props: { blog },
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.id }, props: { entry },
   }));
 }
 
-const { blog } = Astro.props;
+const { entry } = Astro.props;
+const { Content } = await render(entry);
 ---
 
-<BlogLayout title={blog.title}>
+<BlogLayout title={entry.data.title}>
     <a href="/logs" class="back-btn">&lt; RETURN_TO_LOGS</a>
-    <h1 class="post-title">{blog.title}</h1>
-    <article set:html={blog.content} />
+    <h1 class="post-title">{entry.data.title}</h1>
+    <article>
+        <Content />
+    </article>
 </BlogLayout>
 
 <style>

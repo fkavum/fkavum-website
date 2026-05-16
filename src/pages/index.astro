@@ -4,7 +4,6 @@ import Navigation from "../components/Navigation.astro";
 import Section from "../components/Section.astro";
 import Card from "../components/Card.astro";
 import BlogCard from "../components/BlogCard.astro";
-import { blogs } from "../data/blogs";
 ---
 
 <Layout title="Fatih Kavum | Portfolio">
@@ -102,21 +101,6 @@ import { blogs } from "../data/blogs";
                 </div>
             </div>
         </Section>
-
-        <Section id="blog" title="DEV_DIARY (BLOG)">
-            {
-                blogs.map((blog) => (
-                    <BlogCard
-                        title={blog.title}
-                        description={blog.description}
-                        date={blog.date}
-                        category={blog.category}
-                        slug={blog.slug}
-                    />
-                ))
-            }
-        </Section>
-
         <footer>
             <p class="dim">
                 GAME OVER? NAH. <br /> CONTACT: fatihkavum@gmail.com [cite: 20, 48]
@@ -145,4 +129,3 @@ import { blogs } from "../data/blogs";
         border: none;
     }
 </style>
-

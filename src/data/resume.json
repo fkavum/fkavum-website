@@ -4,14 +4,23 @@
       "company": "Zynga",
       "role": "Senior Software Engineer",
       "period": "2022 - 2025",
-      "tags": [".NET", "AWS", "Unity", "CI/CD"],
+      "tags": [
+        ".NET",
+        "AWS",
+        "Unity",
+        "CI/CD"
+      ],
       "description": "Managed backend-facing systems for <span class=\"highlight\">50M+ installs</span>. Engineered reconnection pipelines and content delivery via Unity Addressables."
     },
     {
       "company": "Sir Studios",
       "role": "Senior Software Developer",
       "period": "2021 - 2022",
-      "tags": ["PlayFab", "Azure", "Scalability"],
+      "tags": [
+        "PlayFab",
+        "Azure",
+        "Scalability"
+      ],
       "description": "Led architecture for new products and maintained live systems for <span class=\"highlight\">200k+ DAU</span> using PlayFab and Azure Functions."
     },
     {
@@ -40,6 +49,37 @@
         "Redis / Caching",
         "Distributed Systems"
       ]
+    },
+    {
+      "category": "LALALAL",
+      "items": [
+        "AWS / Azure",
+        "Jenkins / Docker",
+        "Redis / Caching",
+        "Distributed Systems"
+      ]
+    }
+  ],
+  "socials": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/fatihkavum",
+      "icon": "/icons/linkedin-svgrepo-com.svg"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://youtube.com/",
+      "icon": "/icons/youtube-svgrepo-com.svg"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://instagram.com/",
+      "icon": "/icons/instagram-svgrepo-com.svg"
+    },
+    {
+      "platform": "Company",
+      "url": "https://fatihkavum.com",
+      "icon": "/icons/placeholder.svg"
     }
   ]
 }

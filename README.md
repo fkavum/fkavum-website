@@ -67,3 +67,13 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+
+
+
+In Astro, there is a strict difference between the `src/` directory and the `public/` directory when handling assets:
+
+1.  **`src/assets/`**: Files here must be explicitly `import`ed into your `.astro` files so the bundler (Vite) can process them.
+2.  **`public/`**: Files here are served directly at the root URL (e.g. `/icons/...`) without being touched by the bundler.
+
+Since your `resume.json` provides the icons as raw URL strings like `/icons/linkedin-svgrepo-com.svg`, the browser requests them directly from your site's root directory. Because they were in `src/assets/icons`, Astro's dev server couldn't find them there.

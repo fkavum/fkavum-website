@@ -1,12 +1,13 @@
 ---
-import BlogLayout from '../../layouts/BlogLayout.astro';
-import { getCollection, render } from 'astro:content';
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.id }, props: { entry },
-  }));
+    const blogEntries = await getCollection("blog");
+    return blogEntries.map((entry) => ({
+        params: { slug: entry.id },
+        props: { entry },
+    }));
 }
 
 const { entry } = Astro.props;
@@ -23,15 +24,19 @@ const { Content } = await render(entry);
 
 <style>
     .post-title {
-        text-align: left; 
+        text-align: left;
         font-size: 1.5rem;
         margin-bottom: 2rem;
     }
 </style>
 
 <style is:global>
+    article {
+        font-size: 1.2rem;
+    }
     pre {
         position: relative;
+        font-size: 0.7rem;
     }
     .copy-code-btn {
         position: absolute;
@@ -48,7 +53,8 @@ const { Content } = await render(entry);
         opacity: 0;
         transition: opacity 0.2s, background-color 0.2s;
     }
-    pre:hover .copy-code-btn, .copy-code-btn:focus {
+    pre:hover .copy-code-btn,
+    .copy-code-btn:focus {
         opacity: 1;
     }
     .copy-code-btn:hover {
@@ -57,38 +63,40 @@ const { Content } = await render(entry);
 </style>
 
 <script>
-    const codeBlocks = Array.from(document.querySelectorAll('pre'));
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
 
     codeBlocks.forEach((codeBlock) => {
         // Avoid adding multiple buttons if script runs multiple times
-        if (codeBlock.querySelector('.copy-code-btn')) return;
+        if (codeBlock.querySelector(".copy-code-btn")) return;
 
-        const copyButton = document.createElement('button');
-        copyButton.className = 'copy-code-btn';
-        copyButton.textContent = 'Copy';
+        const copyButton = document.createElement("button");
+        copyButton.className = "copy-code-btn";
+        copyButton.textContent = "Copy";
 
-        codeBlock.setAttribute('tabindex', '0');
+        codeBlock.setAttribute("tabindex", "0");
         codeBlock.appendChild(copyButton);
 
-        copyButton.addEventListener('click', async () => {
+        copyButton.addEventListener("click", async () => {
             await copyCode(codeBlock, copyButton);
         });
     });
 
     async function copyCode(block, button) {
-        let code = block.querySelector('code');
-        let text = code ? code.innerText : block.innerText.replace('Copy', '').trim();
+        let code = block.querySelector("code");
+        let text = code
+            ? code.innerText
+            : block.innerText.replace("Copy", "").trim();
 
         try {
             await navigator.clipboard.writeText(text);
-            button.textContent = 'Copied!';
-            
+            button.textContent = "Copied!";
+
             setTimeout(() => {
-                button.textContent = 'Copy';
+                button.textContent = "Copy";
             }, 2000);
         } catch (err) {
-            console.error('Failed to copy text: ', err);
-            button.textContent = 'Failed';
+            console.error("Failed to copy text: ", err);
+            button.textContent = "Failed";
         }
     }
 </script>

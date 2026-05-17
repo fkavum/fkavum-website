@@ -27,8 +27,26 @@
       "company": "Playable Factory",
       "role": "Software Developer",
       "period": "2020 - 2021",
-      "tags": [],
+      "tags": [
+        "C#",
+        "HTML5",
+        "WebGL",
+        "TypeScript"
+      ],
       "description": "Built a custom HTML5 engine to replicate Unity behavior, keeping build sizes <span class=\"highlight\">under 1.5MB</span>."
+    },
+    {
+      "company": "Map Business Network",
+      "role": "Software Developer",
+      "period": "2018 - 2020",
+      "tags": [
+        "Php",
+        "MySQL",
+        "HTML5",
+        "MS SQL",
+        "VueJs"
+      ],
+      "description": "Automated end-to-end ERP integrations and B2B infrastructure for enterprise retail and automotive giants. Optimized mission-critical SQL queries and API processes, driving system performance down to the millisecond level."
     }
   ],
   "skills": [
@@ -49,15 +67,6 @@
         "Redis / Caching",
         "Distributed Systems"
       ]
-    },
-    {
-      "category": "LALALAL",
-      "items": [
-        "AWS / Azure",
-        "Jenkins / Docker",
-        "Redis / Caching",
-        "Distributed Systems"
-      ]
     }
   ],
   "socials": [
@@ -72,9 +81,9 @@
       "icon": "/icons/instagram-svgrepo-com.svg"
     },
     {
-      "platform": "Company",
+      "platform": "My Game Studio",
       "url": "https://dcxstudios.org",
-      "icon": "/icons/placeholder.svg"
+      "icon": "/icons/dcx.png"
     }
   ]
 }

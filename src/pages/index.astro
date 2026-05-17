@@ -29,8 +29,17 @@ import resumeData from "../data/resume.json";
             <div class="social-links">
                 {
                     resumeData.socials?.map((social) => (
-                        <a href={social.url} target="_blank" rel="noopener noreferrer" class="social-btn">
-                            <img src={social.icon} alt={`${social.platform} icon`} class="social-icon" />
+                        <a
+                            href={social.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-btn"
+                        >
+                            <img
+                                src={social.icon}
+                                alt={`${social.platform} icon`}
+                                class="social-icon"
+                            />
                             {social.platform}
                         </a>
                     ))
@@ -68,7 +77,9 @@ import resumeData from "../data/resume.json";
                 {
                     resumeData.skills.map((skillGroup) => (
                         <div>
-                            <p class="pixel-font skill-label">{skillGroup.category}</p>
+                            <p class="pixel-font skill-label">
+                                {skillGroup.category}
+                            </p>
                             <ul class="skill-list">
                                 {skillGroup.items.map((item) => (
                                     <li>{item}</li>
@@ -123,7 +134,7 @@ import resumeData from "../data/resume.json";
         color: var(--text);
         padding: 10px 20px;
         border: 2px dashed #444;
-        font-family: 'Press Start 2P', cursive;
+        font-family: "Press Start 2P", cursive;
         font-size: 0.7rem;
         line-height: 1;
         transition: 0.2s;

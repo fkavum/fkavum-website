@@ -6,8 +6,8 @@ services:
       context: ..
       dockerfile: docker/Dockerfile
     container_name: astro_portfolio
-    ports:
-      - "55231:80" # Tarayıcıdan http://sunucu_ip:8080 şeklinde ulaşabilirsin
+    # ports:
+      # - "55231:80" # Tarayıcıdan http://sunucu_ip:8080 şeklinde ulaşabilirsin
     restart: always
     logging:
       driver: "json-file"

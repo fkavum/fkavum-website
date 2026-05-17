@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation.astro";
 import Section from "../components/Section.astro";
 import Card from "../components/Card.astro";
 import BlogCard from "../components/BlogCard.astro";
+import resumeData from "../data/resume.json";
 ---
 
 <Layout title="Fatih Kavum | Portfolio">
@@ -31,79 +32,46 @@ import BlogCard from "../components/BlogCard.astro";
             <p style="font-size: 1.6rem; line-height: 1.6;">
                 I build <span class="highlight">scalable systems</span> for high-traffic
                 environments. Whether it's optimizing SQL queries from seconds to
-                milliseconds [cite: 38] or architecting gameplay for <span
+                milliseconds or architecting gameplay for <span
                     class="highlight">500k Daily Active Users</span
-                >[cite: 22, 24], I focus on performance and reliability.
+                >, I focus on performance and reliability.
             </p>
         </Section>
 
         <Section id="exp" title="QUEST_LOG (EXPERIENCE)">
-            <Card
-                title="Zynga"
-                subtitle="Senior Software Engineer"
-                date="2022 - 2025"
-                tags={[".NET", "AWS", "Unity", "CI/CD"]}
-            >
-                <p>
-                    Managed backend-facing systems for <span class="highlight"
-                        >50M+ installs</span
-                    >. Engineered reconnection pipelines and content delivery
-                    via Unity Addressables[cite: 24, 26, 55].
-                </p>
-            </Card>
-
-            <Card
-                title="Sir Studios"
-                subtitle="Senior Software Developer"
-                date="2021 - 2022"
-                tags={["PlayFab", "Azure", "Scalability"]}
-            >
-                <p>
-                    Led architecture for new products and maintained live
-                    systems for <span class="highlight">200k+ DAU</span> using PlayFab
-                    and Azure Functions[cite: 28, 30, 32].
-                </p>
-            </Card>
-
-            <Card
-                title="Playable Factory"
-                subtitle="Software Developer"
-                date="2020 - 2021"
-            >
-                <p>
-                    Built a custom HTML5 engine to replicate Unity behavior,
-                    keeping build sizes <span class="highlight"
-                        >under 1.5MB</span
-                    >[cite: 65, 66].
-                </p>
-            </Card>
+            {
+                resumeData.experience.map((exp) => (
+                    <Card
+                        title={exp.company}
+                        subtitle={exp.role}
+                        date={exp.period}
+                        tags={exp.tags.length > 0 ? exp.tags : undefined}
+                    >
+                        <p set:html={exp.description} />
+                    </Card>
+                ))
+            }
         </Section>
 
         <Section id="skills" title="ABILITY_TREE (STATS)">
             <div class="skill-grid">
-                <div>
-                    <p class="pixel-font skill-label">CORE_TECH</p>
-                    <ul class="skill-list">
-                        <li>C# / .NET (Expert) [cite: 44, 70]</li>
-                        <li>Unity (6+ Years) [cite: 49, 69]</li>
-                        <li>SQL & NoSQL [cite: 44]</li>
-                        <li>C++ / Unreal [cite: 49, 70]</li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="pixel-font skill-label">INFRA_SKILLS</p>
-                    <ul class="skill-list">
-                        <li>AWS / Azure [cite: 27, 45, 58]</li>
-                        <li>Jenkins / Docker [cite: 27, 45, 59]</li>
-                        <li>Redis / Caching [cite: 40, 45]</li>
-                        <li>Distributed Systems [cite: 21, 39]</li>
-                    </ul>
-                </div>
+                {
+                    resumeData.skills.map((skillGroup) => (
+                        <div>
+                            <p class="pixel-font skill-label">{skillGroup.category}</p>
+                            <ul class="skill-list">
+                                {skillGroup.items.map((item) => (
+                                    <li>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))
+                }
             </div>
         </Section>
         <footer>
             <p class="dim">
-                GAME OVER? NAH. <br /> CONTACT: fatihkavum@gmail.com [cite: 20, 48]
+                GAME OVER? NAH. <br /> CONTACT: fatihkavum@gmail.com
             </p>
         </footer>
     </div>

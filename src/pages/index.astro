@@ -65,6 +65,7 @@ import resumeData from "../data/resume.json";
                         subtitle={exp.role}
                         date={exp.period}
                         tags={exp.tags.length > 0 ? exp.tags : undefined}
+                        caseStudyLink={exp.caseStudySlug ? `/case-studies/${exp.caseStudySlug}` : undefined}
                     >
                         <p set:html={exp.description} />
                     </Card>

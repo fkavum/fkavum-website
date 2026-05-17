@@ -1,6 +1,18 @@
 {
   "experience": [
     {
+      "company": "Dcx Studios",
+      "role": "Owner",
+      "period": "2022 - present",
+      "tags": [
+        ".NET",
+        "AWS",
+        "Unity",
+        "CI/CD"
+      ],
+      "description": "I did crossle."
+    },
+    {
       "company": "Zynga",
       "role": "Senior Software Engineer",
       "period": "2022 - 2025",

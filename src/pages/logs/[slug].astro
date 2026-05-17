@@ -29,3 +29,66 @@ const { Content } = await render(entry);
     }
 </style>
 
+<style is:global>
+    pre {
+        position: relative;
+    }
+    .copy-code-btn {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        font-family: inherit;
+        color: #e5e7eb;
+        background-color: #374151;
+        border: 1px solid #4b5563;
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.2s, background-color 0.2s;
+    }
+    pre:hover .copy-code-btn, .copy-code-btn:focus {
+        opacity: 1;
+    }
+    .copy-code-btn:hover {
+        background-color: #4b5563;
+    }
+</style>
+
+<script>
+    const codeBlocks = Array.from(document.querySelectorAll('pre'));
+
+    codeBlocks.forEach((codeBlock) => {
+        // Avoid adding multiple buttons if script runs multiple times
+        if (codeBlock.querySelector('.copy-code-btn')) return;
+
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-code-btn';
+        copyButton.textContent = 'Copy';
+
+        codeBlock.setAttribute('tabindex', '0');
+        codeBlock.appendChild(copyButton);
+
+        copyButton.addEventListener('click', async () => {
+            await copyCode(codeBlock, copyButton);
+        });
+    });
+
+    async function copyCode(block, button) {
+        let code = block.querySelector('code');
+        let text = code ? code.innerText : block.innerText.replace('Copy', '').trim();
+
+        try {
+            await navigator.clipboard.writeText(text);
+            button.textContent = 'Copied!';
+            
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+            button.textContent = 'Failed';
+        }
+    }
+</script>

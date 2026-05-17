@@ -63,22 +63,17 @@
   "socials": [
     {
       "platform": "LinkedIn",
-      "url": "https://linkedin.com/in/fatihkavum",
+      "url": "https://www.linkedin.com/in/fkavum/",
       "icon": "/icons/linkedin-svgrepo-com.svg"
     },
     {
-      "platform": "YouTube",
-      "url": "https://youtube.com/",
-      "icon": "/icons/youtube-svgrepo-com.svg"
-    },
-    {
-      "platform": "Instagram",
-      "url": "https://instagram.com/",
+      "platform": "Github",
+      "url": "https://github.com/fkavum",
       "icon": "/icons/instagram-svgrepo-com.svg"
     },
     {
       "platform": "Company",
-      "url": "https://fatihkavum.com",
+      "url": "https://dcxstudios.org",
       "icon": "/icons/placeholder.svg"
     }
   ]
